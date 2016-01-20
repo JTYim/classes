@@ -8,21 +8,36 @@ MovingDancer.prototype = Object.create(Dancer.prototype);
 MovingDancer.prototype.constructor = MovingDancer;
 
 MovingDancer.prototype.step= function(){
-  // Add conditional to reverse direction upon reaching $(window).width() || 0
-  this.x = this.x + 5;
-  // this.y = this.y + 50;
-  this.setPosition(this.x, this.y);
+  var maxX = $('body').width() - 110; 
+  var maxY = $('body').height() - 110;
   
+  if(this.suspend!==true){
+    this.x <= 0 && (this.xDirection = 'add');
+    this.x >= maxX && (this.xDirection = 'minus');
+    this.xDirection==='add' && ( this.x = this.x + 5 );
+    this.xDirection==='minus' && ( this.x = this.x - 5 );
+
+    this.y <= 0 && (this.yDirection = 'add');
+    this.y >= maxY && (this.yDirection = 'minus');
+    this.yDirection==='add' && ( this.y = this.y + 5 );
+    this.yDirection==='minus' && ( this.y = this.y - 5 );
+  }else{
+    this.x=0;
+  }
+  this.setPosition(this.y,this.x);
   Dancer.prototype.step.call(this);
-  
-  // debug
-  window.dancers.forEach(function(e){
-    var prox = Dancer.prototype.distance.call(this, e);
-    if(prox < 50){
-      $(e).css("display : hidden")
+  this.prox(this.y,this.x);
+};
+
+MovingDancer.prototype.prox=function(currentY, currentX){
+  var self = this;
+  window.dancers.forEach( function(element, i){
+    var zz = Math.sqrt( (Math.pow((currentX-element.x),2)) + (Math.pow((currentY-element.y),2)) );
+    // debugger;
+    if( !(element instanceof MovingDancer) && zz <= 50){
+      $(element.$node).css({ display : 'none' });
     }
   })
-
 };
 
 

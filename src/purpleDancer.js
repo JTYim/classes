@@ -8,5 +8,5 @@ PurpleDancer.prototype.constructor = PurpleDancer;
 PurpleDancer.prototype.step = function () {
   Dancer.prototype.step.call(this);
   this.$node.toggle()
-};
+}
 

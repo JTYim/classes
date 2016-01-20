@@ -9,18 +9,36 @@
     <script src="src/slugDancer.js"></script>
     <script src="src/purpleDancer.js"></script>
     <script src="src/movingDancer.js"></script>
+    <script src="src/audio.js"></script>
   </head>
   
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <button type="button" class="btn"><a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">Add a Blinky Dancer</a></button>
-      <button type="button" class="btn"><a href="#" class="addDancerButton" class="addSlugDancerButton" data-dancer-maker-function-name="SlugDancer">Add a Slug Dancer</a></button>
-      <button type="button" class="btn"><a href="#" class="addDancerButton" class="addPurpleDancerButton"data-dancer-maker-function-name="PurpleDancer">Add a Purple Dancer</a></button>
-      <button type="button" class="btn"><a href="#" class="addMovingDancerButton" class="addDancerButton"data-dancer-maker-function-name="MovingDancer">Add a Moving Dancer</a></button>
-      <button type="button" class="btn"><a href="#" class="lineUp">Line up!</a></button>
-      
+      <button type="button" class="btn">
+        <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">Add a Blinky Dancer</a>
+      </button>
+      <button type="button" class="btn">
+        <a href="#" class="addDancerButton" class="addSlugDancerButton" data-dancer-maker-function-name="SlugDancer">Add a Slug Dancer</a>
+      </button>
+      <button type="button" class="btn">
+        <a href="#" class="addDancerButton" class="addPurpleDancerButton" data-dancer-maker-function-name="PurpleDancer">Add a Purple Dancer</a>
+        </button>
+      <button type="button" class="btn">
+        <a href="#" class="addDancerButton" class="addMovingDancerButton" data-dancer-maker-function-name="MovingDancer">Add a Moving Dancer</a>
+      </button>
+      <button type="button" class="btn">
+        <a href="#" class="lineUp">Line up!</a>
+      </button>
+    
+      <audio controls play pause volume autoplay>
+        <source src="extras/song.mp3" type="audio/mpeg">
+      </audio>
     </div>
+
+    <div id="container">
+    </div>
+    
     <script src="src/init.js"></script>
   </body>
 </html>
